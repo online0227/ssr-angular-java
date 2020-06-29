@@ -1,0 +1,65 @@
+<div style="text-align: left;">
+  <H1>Signup</H1>
+</div>
+<div class="container">
+  <div class="alert alert-warning" *ngIf='signUpUnsuccess'>{{errorMessage}}</div>
+  <div class="alert alert-success" *ngIf='signUpSuccess'>{{registered}} has been registered!</div>
+
+  <!-- CSS 3D 시작 (re-render 안되는 버그있음. 자세한 사항은 src/app/signup/signup.component.ts 의 ngOnInit() 참조-->
+  <!-- <form (ngSubmit)="handleJWTAuthLogin()"> -->
+    <!-- <form>
+      <div class="form" id="form">
+        <div class="field username">
+          <div class="icon"></div>
+          <input class="input" type="text" id="username" name="username" [(ngModel)]="username" placeholder="Username"
+            required="required" />
+        </div>
+
+        <div class="field email">
+          <div class="icon"></div>
+          <input class="input" type="text" id="email" name="email" [(ngModel)]="email" placeholder="Email"
+            required="required" />
+        </div>
+
+        <div class="field name">
+          <div class="icon"></div>
+          <input class="input" type="text" id="name" name="name" [(ngModel)]="name" placeholder="Name"
+            required="required" />
+        </div>
+
+        <div class="field password">
+          <div class="icon"></div>
+          <input class="input" type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" required="required" />
+        </div>
+
+        <button type="submit" class="button" id="submit">SIGNUP
+          <div class="side-top-bottom"></div>
+          <div class="side-left-right"></div>
+        </button><small>Fill in the form</small>
+      </div>
+    </form> -->
+    <!-- CSS 3D 끝 -->
+
+  <form (ngSubmit)="handleSignUp()">
+    <div class="signform">
+      <div class="block">
+        <label>Username</label>
+        <input type="text" name="username" [(ngModel)]="username" required="required">
+      </div>
+      <div class="block">
+        <label>Email</label>
+        <input type="text" name="email" [(ngModel)]="email" required="required">
+      </div>
+      <div class="block">
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="name" required="required">
+      </div>
+      <div class="block">
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="password" required="required">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Signup</button>
+  </form>
+
+</div>

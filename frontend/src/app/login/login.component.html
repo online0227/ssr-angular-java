@@ -1,0 +1,44 @@
+<div style="text-align: left;"><H1>Signin</H1></div>
+<div class="container">
+  <div class="alert alert-success" *ngIf='signUpSuccess'>Your account is created. Please login below.</div>
+  <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+
+  <!-- CSS 3D 시작 -->
+  <!-- <form>
+    <div class="form" id="form">
+      <div class="field email">
+        <div class="icon"></div>
+        <input class="input" type="text" id="usernameOrEmail" name="usernameOrEmail" [(ngModel)]="usernameOrEmail" placeholder="Email"
+          required="required" />
+      </div>
+      <div class="field password">
+        <div class="icon"></div>
+        <input class="input" type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" required="required" />
+      </div>
+      <button type="submit" class="button" id="submit">LOGIN
+        <div class="side-top-bottom"></div>
+        <div class="side-left-right"></div>
+      </button><small>Fill in the form</small>
+    </div>
+  </form> -->
+  <!-- CSS 3D 끝 -->
+
+  <!-- 아래 것으로 해도 로그인 됨 -->
+  <form (ngSubmit)="handleJWTAuthLogin()">
+    <div class="signform">
+      <div class="block">
+        <label>Username or Email</label>
+        <input type="text" name="usernameOrEmail" [(ngModel)]="usernameOrEmail" required="required">
+      </div>
+      <div class="block">
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="password" required="required">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Login</button>
+  </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256–2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="./jquery.js"></script>

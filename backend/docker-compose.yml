@@ -1,0 +1,12 @@
+version: "2"
+services:
+  ssr-java-backend:
+    restart: always
+    build:
+      context: .
+    image: online0227/myproject
+    ports:
+      - "5000:5000"
+    dns:
+      - .localhost
+    network_mode: host

@@ -1,0 +1,29 @@
+<H1>Todo</H1>
+
+<div class="container">
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && description.invalid">Enter atleast 5 characters in Description</div>
+  
+  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+    <fieldset class="form-group">
+      <label>Description</label>
+      <!-- todo.description 이 있으면 바인드 -->
+      <input type="text" #description="ngModel" 
+            [(ngModel)]="todo.description" class="form-control" 
+                name="description" required="required" minlength="5">
+    </fieldset>
+
+    <!-- [ngModel] 은 property binding, (ngModelChange) 은 이벤트 바인딩 이라고 한다. whenever there is change in target date value, then
+    set the target date to whatever value returned by the event. |의 이후에 있는 것은 |의 전자에 있는 date 를 표기하는 방식을 지정 -->
+    <fieldset class="form-group">
+        <label>Target Date</label>
+        <input type="date" #targetDate="ngModel"
+        [ngModel]="todo.targetDate | date:'yyyy-MM-dd' "
+        (ngModelChange)="todo.targetDate = $event"
+        class="form-control" name="targetDate" required="required" >
+    </fieldset>
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>  
+</div>
