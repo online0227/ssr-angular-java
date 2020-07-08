@@ -10,6 +10,7 @@ How to run backend Java Spring Boot:
 5. Add following into your mysql database:
 
 	INSERT INTO ssr_angular_java.roles(name) VALUES('ROLE_USER');
+	
 	INSERT INTO ssr_angular_java.roles(name) VALUES('ROLE_ADMIN');
 	
 6. Run the app again
